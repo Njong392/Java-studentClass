@@ -1,32 +1,37 @@
 package com.company;
-
+😪
 public class Student {
     String name;
     Integer age;
     Double engScore;
     Double mathScore;
     Double average;
+    Integer rank;
+
+   /* Trying to create a method here to find the rank... but since I used an array of objects, I cannot
+   directly influence the average of each object... Lost concerning other methods, because I can't find a
+   suitable parameter for the method 😪
+    */
+
+    public static double[] rankFunction(double[] array){
+        double temp;
 
 
-    public void setName(String name) {
-        this.name = name;
+        for(int i=0;i< array.length-1;i++){
+            for(int j=0;j< array.length-2;j++){
+                if(array[j]>array[j+1]){
+                    temp = array[j+1];
+                    array[j+1] = array[j];
+                    array[j] = temp;
+
+                }
+            }
+        }
+        return array;
+
     }
 
-    public void setAge(Integer age) {
-        this.age = age;
-    }
 
-    public void setEngScore(Double engScore) {
-        this.engScore = engScore;
-    }
-
-    public void setMathScore(Double mathScore) {
-        this.mathScore = mathScore;
-    }
-
-    public void setAverage(Double average) {
-        this.average = average;
-    }
 
     public void display(){
         System.out.println("Name:"+this.name);
@@ -34,6 +39,7 @@ public class Student {
         System.out.println("English score:"+this.engScore);
         System.out.println("Math score:"+this.mathScore);
         System.out.println("Average:"+this.average);
+        System.out.println("Rank:"+this.rank);
     }
 
 
@@ -42,10 +48,8 @@ public class Student {
         this.age = age;
         this.engScore = engScore;
         this.mathScore = mathScore;
-
-
-
         average = ((this.engScore)+(this.mathScore))/2;
+
 
     }
 }
